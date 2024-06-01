@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Number Conversion</h1><br>
+        Enter number:<input type="text" id="num"><br>
+        <input type="button" value="convert" onclick="validate()"><br><br>
+        Number name:<br>
+        <input type="text" id="ans"> 
+       
+        <script>
+            function validate(){
+            var num=parseInt(document.getElementById('num').value);
+            var ones=['','one','two','three','four','five','six','seven','eight','nine'];
+            var tens=['','ten','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+            var teens=['eleven','twelve','thirtheen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+            var ans="";
+            if((!isNaN(num)) && num>=0 && num<=999){
+            if(num==0){
+                ans="zero";
+            }
+            if(num>=100){
+                ans=ans+ones[Math.floor(num/100)]+" hundred";
+                num=num%100;
+                if (num > 0) ans += " and ";
+            }
+            else if(num>=20){
+                ans=ans+tens[Math.floor(num/10)]+" ";
+                num=num%10;
+            }
+            else if(num>=11 && num<=19){
+                ans=ans+teens[num-11]+" ";
+                num=0;
+            }
+            else if(num==10){
+                ans=ans+"ten";
+                num=0;
+            }
+
+            if(num==0){
+                
+            }
+            else{
+                if(num>=20){
+                    ans=ans+" "+tens[Math.floor(num/10)];
+                    num=num%10;
+                }
+                if(num>0 && num<10){
+                    ans=ans+" "+ones[num];
+                    num=0;
+                }
+                if(num==10){
+                    ans=ans+ " ten";
+                }
+                if(num>=11 && num<=19){
+                    ans=ans+" "+teen[num-11];
+                }
+                
+            }
+        }
+        else if(isNaN(num)){
+            ans="Not a number";
+        }
+        else{
+            ans="Out of range";
+        }
+        document.getElementById('ans').value=ans;
+    }   
+
+        </script>
+    </center>
+</body>
+</html>

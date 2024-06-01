@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>char,word and line count</title>
+</head>
+<style>
+    #subt{
+        padding:12px 10px;
+        background-color:green;
+        color:white;
+        margin:auto;
+    }
+</style>
+<body>
+    <center>
+        <h1>Count of characters,words and lines</h1>
+        
+        <textarea id="tb" rows="6" cols="50" placeholder="Enter text here! "></textarea>
+        <br>
+        <br>
+        <input type="button" id="subt" value="Submit">
+    </center>
+    <script>
+        document.getElementById('subt').addEventListener('click',function(){
+
+            var text=document.getElementById('tb').value;
+            var charcount=text.replace(/[\s\n]/g,'').length;
+            var textcount=text.trim().split(/\s+/).length;
+            var linecount=text.trim().split(/\n/).length;
+
+            var msg="Character count : "+charcount+"\n"+"Word count : "+textcount+"\n"+"Lines count: "+linecount+"\n";
+            alert(msg);
+        })
+    </script>
+</body>
+</html>

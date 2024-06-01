@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script language="javascript">
+        function validate(){
+            var text=document.index.box.value;
+            var charcount=text.replace(/[\s\n]/g,"").length;
+            var wordcount=text.trim().split(/\s+/).length;
+            var linecount=text.trim().split(/\n/).length;
+            var msg="characters are "+charcount+"\n"+ "wordcount:"+wordcount+"\n"+" line count:"+linecount;
+            alert(msg);
+        }
+    </script>
+</head>
+<body>
+    <center>
+    <h1>Enter text here</h1>
+    <form name="index" method="get" >
+        <textarea name="box" rows="6" cols="50"></textarea><br><br>
+        
+        <input type="button" value="Count" onclick="validate()">
+    </form>
+</center>
+</body>
+</html>
